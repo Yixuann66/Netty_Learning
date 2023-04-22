@@ -18,8 +18,17 @@ public class TestByteBufferString {
         ByteBuffer byteBuffer = ByteBuffer.allocate(10);
         byteBuffer.put("hello".getBytes());
         System.out.println(byteBuffer.toString());
+        // 还是写模式
 
-        // 2.
+        // 2. charSrt
+        ByteBuffer byteBuffer1 = StandardCharsets.UTF_8.encode("hello");
+        // 自动切换成读模式
+        System.out.println(byteBuffer1);
+
+        // 3. wrap 方法
+        ByteBuffer byteBuffer2 = ByteBuffer.wrap("hello".getBytes());
+
+
     }
 
 }
