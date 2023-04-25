@@ -22,6 +22,24 @@ public class TestByteBufferExam {
     }
 
     private static void split(ByteBuffer source) {
+        // 切换成读模式
+        source.flip();
+        for (int i = 0; i < source.limit(); i++) {
+            // 找到一条完整新消息
+            if (source.get(i) == '\n') {
+                // 把新的新消息存入新的byteBuffer
+                int length = i + 1 - source.position();
+                ByteBuffer target = ByteBuffer.allocate(length);
+                for (int j = 0; j < length; j++) {
+                    target.put(source.get());
+                }
+                System.out.println(target);
+            }
+        }
+
+
+        // 切换成写模式 将第一次未读的向前整理
+        source.compact();
 
     }
 }
