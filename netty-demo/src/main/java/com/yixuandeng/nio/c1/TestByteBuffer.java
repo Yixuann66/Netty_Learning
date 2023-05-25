@@ -1,9 +1,7 @@
-package com.yixuandeng.netty.c1;/**
+package com.yixuandeng.nio.c1;/**
  * @Author 85067
  * @create 21/04/2023 17:52
  */
-
-import lombok.extern.slf4j.Slf4j;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -27,7 +25,7 @@ public class TestByteBuffer {
     public static void main(String[] args) {
         // fileChannel
         // 1. IF there is a error : finally will close the inputstream
-        File file = new File("D:\\NewWorkSpacee\\Netty_Learning\\netty-demo\\data.txt");
+        File file = new File("D:\\NewWorkSpacee\\Netty_Learning\\nio-demo\\data.txt");
 
         try (FileChannel channel = new FileInputStream(file).getChannel()) {
             // prepare ByteBuffer : Allocate 10 byte to be a buffer
