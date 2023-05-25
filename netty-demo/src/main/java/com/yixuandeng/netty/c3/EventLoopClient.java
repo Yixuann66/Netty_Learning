@@ -20,6 +20,7 @@ import java.net.InetSocketAddress;
  */
 public class EventLoopClient {
     public static void main(String[] args) throws InterruptedException {
+        // future和promise的channel类型都和异步方法配合使用
         Channel channel = new Bootstrap()
                 // 2. 添加EventLoop
                 .group(new NioEventLoopGroup())
